@@ -1,6 +1,8 @@
+import "@splidejs/react-splide/css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import ServicesProvider from "./contexts/ServicesProvider";
 import ThemeProvider from "./contexts/ThemeProvider";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -9,7 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <ServicesProvider>
+        <App />
+      </ServicesProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
