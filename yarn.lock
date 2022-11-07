@@ -7268,7 +7268,7 @@ prompts@^2.0.1, prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -7505,6 +7505,13 @@ react-simple-typewriter@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/react-simple-typewriter/-/react-simple-typewriter-4.0.5.tgz#404a1e12ccb97ad7813b48f8e58813117fe8e3fb"
   integrity sha512-2CmVpD1kTifRE8gixr2z+1aYS136ZbAC/UATNzvkzl4tSiThT/ATXH4rOGVwWLTlOWCVnSewObXo/kJlV2HMxw==
+
+react-switch@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-7.0.0.tgz#400990bb9822864938e343ed24f13276a617bdc0"
+  integrity sha512-KkDeW+cozZXI6knDPyUt3KBN1rmhoVYgAdCJqAh7st7tk8YE6N0iR89zjCWO8T8dUTeJGTR0KU+5CHCRMRffiA==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^18.2.0:
   version "18.2.0"
