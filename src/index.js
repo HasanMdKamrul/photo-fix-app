@@ -1,6 +1,8 @@
 import "@splidejs/react-splide/css";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { PhotoProvider } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import App from "./App";
 import ServicesProvider from "./contexts/ServicesProvider";
 import ThemeProvider from "./contexts/ThemeProvider";
@@ -12,7 +14,11 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <ServicesProvider>
-        <App />
+        <div className="max-h-screen">
+          <PhotoProvider>
+            <App />
+          </PhotoProvider>
+        </div>
       </ServicesProvider>
     </ThemeProvider>
   </React.StrictMode>
