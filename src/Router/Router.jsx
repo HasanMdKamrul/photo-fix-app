@@ -1,4 +1,5 @@
 import Home from "../Pages/Home/Home/Home";
+import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -11,12 +12,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Home />,
       },
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/services/:id",
+        element: <ServiceDetails />,
       },
     ],
   },

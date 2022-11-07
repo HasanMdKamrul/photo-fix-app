@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <ServicesProvider>
-        <div className="max-h-screen">
+        <div className="min-h-screen dark:bg-slate-900">
           <PhotoProvider>
             <App />
           </PhotoProvider>
