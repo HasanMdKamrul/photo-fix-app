@@ -1,3 +1,4 @@
+import AllServices from "../Pages/AllServices/AllServices";
 import Home from "../Pages/Home/Home/Home";
 import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
 
@@ -20,8 +21,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/allservices",
+        element: <AllServices />,
+      },
+      {
         path: "/services/:id",
         element: <ServiceDetails />,
+        loader: ({ params: { id } }) =>
+          fetch(`http://localhost:15000/services/${id}`),
       },
     ],
   },
