@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { ServicesContext } from "../../contexts/ServicesProvider";
 
 const MyReviewCard = ({ review, handleDelete }) => {
@@ -34,12 +35,14 @@ const MyReviewCard = ({ review, handleDelete }) => {
         </div>
       </div>
       <div className="my-5">
-        <button className="px-6 py-2 mr-2  font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-          <span className="flex justify-center items-center">
-            <FaEdit />
-            Edit
-          </span>
-        </button>
+        <Link to={`/update/${_id}`}>
+          <button className="px-6 py-2 mr-2  font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+            <span className="flex justify-center items-center">
+              <FaEdit />
+              Edit
+            </span>
+          </button>
+        </Link>
         <button
           onClick={() => handleDelete(_id)}
           className="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"

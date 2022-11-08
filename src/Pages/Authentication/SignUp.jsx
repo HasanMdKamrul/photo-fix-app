@@ -5,6 +5,7 @@ import { MdClose } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
+import sendPayLoad from "../../Utilities/AuthToken";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -85,6 +86,14 @@ const SignUp = () => {
             setLoading(false);
           })
           .catch((error) => toast.error(error.message));
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log(currentUser);
+
+        sendPayLoad(currentUser);
         navigate(from, { replace: true });
         form.reset();
         toast.success("User logged in", {
@@ -108,8 +117,16 @@ const SignUp = () => {
   const googleHandler = () => {
     const loginGoogle = async () => {
       try {
-        await socialSignIn(googleProvider);
+        const result = await socialSignIn(googleProvider);
         toast.success("User logged in");
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log(currentUser);
+
+        sendPayLoad(currentUser);
         navigate(from, { replace: true });
       } catch (error) {
         toast.error(error.message);
@@ -127,8 +144,16 @@ const SignUp = () => {
   const githubHandler = () => {
     const loginGithub = async () => {
       try {
-        await socialSignIn(githubProvider);
+        const result = await socialSignIn(githubProvider);
         toast.success("User logged in");
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log(currentUser);
+
+        sendPayLoad(currentUser);
         navigate(from, { replace: true });
       } catch (error) {
         toast.error(error.message);

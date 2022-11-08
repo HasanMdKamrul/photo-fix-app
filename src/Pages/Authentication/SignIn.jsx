@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
+import sendPayLoad from "../../Utilities/AuthToken";
 
 const SignIn = () => {
   const { userLogin, socialSignIn, passwordReset, setLoading } =
@@ -21,8 +22,16 @@ const SignIn = () => {
   const googleHandler = () => {
     const loginGoogle = async () => {
       try {
-        await socialSignIn(googleProvider);
+        const result = await socialSignIn(googleProvider);
         toast.success("User logged in");
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log("current user", currentUser);
+
+        sendPayLoad(currentUser);
         navigate(from, { replace: true });
       } catch (error) {
         toast.error(error.message);
@@ -40,8 +49,16 @@ const SignIn = () => {
   const githubHandler = () => {
     const loginGithub = async () => {
       try {
-        await socialSignIn(githubProvider);
+        const result = await socialSignIn(githubProvider);
         toast.success("User logged in");
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log(currentUser);
+
+        sendPayLoad(currentUser);
         navigate(from, { replace: true });
       } catch (error) {
         toast.error(error.message);
@@ -68,6 +85,14 @@ const SignIn = () => {
       try {
         const result = await userLogin(email, password);
         console.log(result.user);
+        // ** token
+        const currentUser = {
+          email: result?.user?.email,
+        };
+
+        console.log(currentUser);
+
+        sendPayLoad(currentUser);
         toast.success("User logged in");
         navigate(from, { replace: true });
       } catch (error) {

@@ -42,7 +42,7 @@ const useFirebase = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      // console.log(currentUser);
+      console.log(currentUser);
       setLoading(false);
     });
 
@@ -53,6 +53,7 @@ const useFirebase = () => {
 
   const logOut = () => {
     setLoading(true);
+    localStorage.removeItem("token");
     return signOut(auth);
   };
 

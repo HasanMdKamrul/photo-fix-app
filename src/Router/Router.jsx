@@ -2,9 +2,11 @@ import AddService from "../Pages/AddService/AddService";
 import AllServices from "../Pages/AllServices/AllServices";
 import SignIn from "../Pages/Authentication/SignIn";
 import SignUp from "../Pages/Authentication/SignUp";
+import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
 import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
 import MyReviews from "../Pages/MyReviews/MyReviews";
+import Update from "../Pages/Update/Update";
 import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -34,6 +36,16 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/update/:id",
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:15000/update/${params.id}`),
+      },
+      {
         path: "/allservices",
         element: <AllServices />,
       },
@@ -45,7 +57,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/addservice",
-        element: <AddService />,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddService />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myreviews",
