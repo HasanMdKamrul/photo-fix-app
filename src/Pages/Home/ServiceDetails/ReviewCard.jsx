@@ -1,9 +1,7 @@
 import React from "react";
 
 const ReviewCard = ({ review }) => {
-  const { name, reviewText, reviewerImage } = review;
-
-  console.log(review);
+  const { name, reviewText, reviewerImage, email } = review;
 
   return (
     <div class="p-8 border rounded-lg dark:border-gray-700">
@@ -18,9 +16,7 @@ const ReviewCard = ({ review }) => {
 
         <div class="mx-2">
           <h1 class="font-semibold text-gray-800 dark:text-white">{name}</h1>
-          <span class="text-sm text-gray-500 dark:text-gray-400">
-            CTO, Robert Consultency
-          </span>
+          <span class="text-sm text-gray-500 dark:text-gray-400">{email}</span>
         </div>
       </div>
     </div>

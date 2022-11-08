@@ -4,6 +4,8 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const CreateReview = ({ id, setRefresh, refresh }) => {
   const { user } = useContext(AuthContext);
 
+  console.log(user);
+
   console.log(id);
 
   const handleSubmit = (event) => {
@@ -13,6 +15,7 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
 
     const review = {
       name: user?.displayName,
+      email: user?.email,
       reviewerImage: user?.photoURL,
       reviewText: event.target.text.value,
       serviceId: id,

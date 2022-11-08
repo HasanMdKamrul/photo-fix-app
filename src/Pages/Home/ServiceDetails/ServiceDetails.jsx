@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdPlayArrow, MdPlayCircle } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import CreateReview from "./CreateReview";
 import ReviewCard from "./ReviewCard";
 
@@ -9,6 +10,8 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { category, image, description, price, title, _id } = data;
   const [refresh, setRefresh] = useState(false);
+
+  const { user } = useContext(AuthContext);
 
   console.log(data);
 
@@ -120,12 +123,18 @@ const ServiceDetails = () => {
           </div>
         </section>
       </section>
-      <section>
+      {user && user?.uid ? (
+        <section>
+          <h1 className="text-5xl dark:text-gray-200 text-center text-black font-extrabold mt-5 ">
+            Give me feedback
+          </h1>
+          <CreateReview setRefresh={setRefresh} refresh={refresh} id={_id} />
+        </section>
+      ) : (
         <h1 className="text-5xl dark:text-gray-200 text-center text-black font-extrabold mt-5 ">
-          Give me feedback
+          Please <Link to="/signin">login</Link> to give your feedback
         </h1>
-        <CreateReview setRefresh={setRefresh} refresh={refresh} id={_id} />
-      </section>
+      )}
     </div>
   );
 };
