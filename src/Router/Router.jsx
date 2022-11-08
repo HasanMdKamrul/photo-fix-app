@@ -1,18 +1,26 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import AddService from "../Pages/AddService/AddService";
-import AllServices from "../Pages/AllServices/AllServices";
-import SignIn from "../Pages/Authentication/SignIn";
-import SignUp from "../Pages/Authentication/SignUp";
+// import AllServices from "../Pages/AllServices/AllServices";
+// import SignIn from "../Pages/Authentication/SignIn";
+// import SignUp from "../Pages/Authentication/SignUp";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
 import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
 import MyReviews from "../Pages/MyReviews/MyReviews";
+import LoadingSppiner from "../Pages/Shared/Navbar/Others/LoadingSppiner";
 import Update from "../Pages/Update/Update";
 import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
 const { default: ErrorPage } = require("../Pages/ErrorPage/ErrorPage");
+
+// ** Lazy-Loading components
+
+const AllServices = lazy(() => import("../Pages/AllServices/AllServices"));
+const SignUp = lazy(() => import("../Pages/Authentication/SignUp"));
+const SignIn = lazy(() => import("../Pages/Authentication/SignIn"));
 
 const router = createBrowserRouter([
   {
@@ -49,7 +57,9 @@ const router = createBrowserRouter([
             <Helmet>
               <title>Photo Fix || SignUp</title>
             </Helmet>
-            <SignUp />
+            <Suspense fallback={<LoadingSppiner />}>
+              <SignUp />
+            </Suspense>
           </>
         ),
       },
@@ -60,7 +70,9 @@ const router = createBrowserRouter([
             <Helmet>
               <title>Photo Fix || SignIn</title>
             </Helmet>
-            <SignIn />
+            <Suspense fallback={<LoadingSppiner />}>
+              <SignIn />
+            </Suspense>
           </>
         ),
       },
@@ -95,7 +107,9 @@ const router = createBrowserRouter([
             <Helmet>
               <title>Photo Fix || All Services</title>
             </Helmet>
-            <AllServices />
+            <Suspense fallback={<LoadingSppiner />}>
+              <AllServices />
+            </Suspense>
           </>
         ),
       },

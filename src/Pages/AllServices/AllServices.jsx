@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
-import ServiceCard from "../Home/Services/ServiceCard";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import LoadingSkeleton from "../Shared/Navbar/Others/LoadingSkeleton";
+// import ServiceCard from "../Home/Services/ServiceCard";
+
+const ServiceCard = lazy(() => import("../Home/Services/ServiceCard"));
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
@@ -32,7 +35,9 @@ const AllServices = () => {
           </p>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-3 xl:grid-cols-3">
             {services.map((service) => (
-              <ServiceCard key={service._id} service={service} />
+              <Suspense fallback={<LoadingSkeleton />}>
+                <ServiceCard key={service._id} service={service} />
+              </Suspense>
             ))}
           </div>
         </div>
