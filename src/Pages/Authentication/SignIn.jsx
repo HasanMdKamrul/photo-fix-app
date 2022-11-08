@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { RefreshContext } from "../../contexts/RefreshProvider";
 import sendPayLoad from "../../Utilities/AuthToken";
 
 const SignIn = () => {
@@ -13,6 +14,7 @@ const SignIn = () => {
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const { refresh, setRefresh } = useContext(RefreshContext);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -32,6 +34,7 @@ const SignIn = () => {
         console.log("current user", currentUser);
 
         sendPayLoad(currentUser);
+        setRefresh(!refresh);
         navigate(from, { replace: true });
       } catch (error) {
         toast.error(error.message);

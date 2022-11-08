@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { RefreshContext } from "../../contexts/RefreshProvider";
 import MyReviewCard from "./MyReviewCard";
 
 const MyReviews = () => {
-  const { user, logOut, setLoading } = useContext(AuthContext);
+  const { user, loading, logOut } = useContext(AuthContext);
   const [ownReviews, setOwnReviews] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+
+  const { refresh, setRefresh } = useContext(RefreshContext);
 
   const handleDelete = (id) => {
     const deleteReviews = async () => {
@@ -30,8 +32,6 @@ const MyReviews = () => {
     deleteReviews();
   };
 
-  console.log(user?.email);
-
   useEffect(() => {
     const ownReviews = async () => {
       try {
@@ -48,13 +48,17 @@ const MyReviews = () => {
 
         if (data.success) {
           setOwnReviews(data.data);
+        } else {
+          setRefresh(!refresh);
         }
       } catch (error) {
         console.log(error.message);
       }
     };
     ownReviews();
-  }, [user?.email, refresh, logOut, setLoading]);
+  }, [user?.email, setRefresh, refresh, logOut, loading]);
+
+  console.log(user?.email);
 
   return (
     <>

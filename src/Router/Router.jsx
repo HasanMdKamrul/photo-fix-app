@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import AddService from "../Pages/AddService/AddService";
 import AllServices from "../Pages/AllServices/AllServices";
 import SignIn from "../Pages/Authentication/SignIn";
@@ -21,55 +22,120 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix</title>
+            </Helmet>
+            <Home />
+          </>
+        ),
       },
       {
         path: "/home",
-        element: <Home />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || Home</title>
+            </Helmet>
+            <Home />
+          </>
+        ),
       },
       {
         path: "/signup",
-        element: <SignUp />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || SignUp</title>
+            </Helmet>
+            <SignUp />
+          </>
+        ),
       },
       {
         path: "/signin",
-        element: <SignIn />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || SignIn</title>
+            </Helmet>
+            <SignIn />
+          </>
+        ),
       },
       {
         path: "/blog",
-        element: <Blog />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || Blog</title>
+            </Helmet>
+            <Blog />
+          </>
+        ),
       },
       {
         path: "/update/:id",
-        element: <Update />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || Edit</title>
+            </Helmet>
+            <Update />
+          </>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:15000/update/${params.id}`),
       },
       {
         path: "/allservices",
-        element: <AllServices />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || All Services</title>
+            </Helmet>
+            <AllServices />
+          </>
+        ),
       },
       {
         path: "/services/:id",
-        element: <ServiceDetails />,
+        element: (
+          <>
+            <Helmet>
+              <title>Photo Fix || ServiceDetails</title>
+            </Helmet>
+            <ServiceDetails />
+          </>
+        ),
         loader: ({ params: { id } }) =>
           fetch(`http://localhost:15000/services/${id}`),
       },
       {
         path: "/addservice",
         element: (
-          <PrivateRoute>
-            {" "}
-            <AddService />
-          </PrivateRoute>
+          <>
+            <Helmet>
+              <title>Photo Fix || AddService</title>
+            </Helmet>
+            <PrivateRoute>
+              <AddService />
+            </PrivateRoute>
+          </>
         ),
       },
       {
         path: "/myreviews",
         element: (
-          <PrivateRoute>
-            <MyReviews />
-          </PrivateRoute>
+          <>
+            <Helmet>
+              <title>Photo Fix || MyReviews</title>
+            </Helmet>
+            <PrivateRoute>
+              <MyReviews />
+            </PrivateRoute>
+          </>
         ),
       },
     ],
