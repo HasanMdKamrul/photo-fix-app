@@ -5,9 +5,7 @@ const ReviewCard = ({ review }) => {
 
   return (
     <div className="p-8 border rounded-lg dark:border-gray-700">
-      <p className="leading-loose text-gray-500 dark:text-gray-400">
-        {reviewText}
-      </p>
+      <p className="leading-loose text-3xl text-yellow-500">{reviewText}</p>
 
       <div className="flex items-center mt-8 -mx-2">
         <img
