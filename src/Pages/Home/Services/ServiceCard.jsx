@@ -3,11 +3,10 @@ import { PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { image, description, category, title, _id, service_id, price } =
-    service;
+  const { image, description, title, _id, price } = service;
 
   return (
-    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform  cursor-pointer rounded-xl hover:border-transparent group hover:bg-sky-400 dark:border-gray-700 dark:hover:border-transparent">
       <div className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <div className="px-4 py-2">
           <h1 className="text-3xl font-bold text-gray-800 uppercase dark:text-white">

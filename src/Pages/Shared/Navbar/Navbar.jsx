@@ -105,7 +105,9 @@ const Navbar = () => {
           {user && user?.uid ? (
             <MdLogout onClick={handlelogout} />
           ) : (
-            <MdLogin />
+            <Link to="/signin">
+              <MdLogin />
+            </Link>
           )}
 
           <Switch

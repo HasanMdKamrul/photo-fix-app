@@ -12,7 +12,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
   const serviceFound = services.find((svr) => svr._id === serviceId);
 
   return (
-    <div className="p-8 border rounded-lg dark:border-gray-700">
+    <div className="p-8 border border-gray-300 hover:bg-sky-300 dark:hover:bg-sky-800 rounded-lg dark:border-gray-700">
       <h1 className="text-2xl font-extrabold dark:text-gray-200">
         {serviceFound?.title}
       </h1>

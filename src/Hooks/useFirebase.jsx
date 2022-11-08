@@ -53,7 +53,7 @@ const useFirebase = () => {
 
   const logOut = () => {
     setLoading(true);
-    // localStorage.removeItem("token");
+    localStorage.removeItem("token");
     return signOut(auth);
   };
 

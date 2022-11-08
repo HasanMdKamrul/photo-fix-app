@@ -7,7 +7,7 @@ import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
 import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
-import MyReviews from "../Pages/MyReviews/MyReviews";
+// import MyReviews from "../Pages/MyReviews/MyReviews";
 import LoadingSppiner from "../Pages/Shared/Navbar/Others/LoadingSppiner";
 import Update from "../Pages/Update/Update";
 import PrivateRoute from "./PrivateRoute";
@@ -21,6 +21,7 @@ const { default: ErrorPage } = require("../Pages/ErrorPage/ErrorPage");
 const AllServices = lazy(() => import("../Pages/AllServices/AllServices"));
 const SignUp = lazy(() => import("../Pages/Authentication/SignUp"));
 const SignIn = lazy(() => import("../Pages/Authentication/SignIn"));
+const MyReviews = lazy(() => import("../Pages/MyReviews/MyReviews"));
 
 const router = createBrowserRouter([
   {
@@ -147,7 +148,9 @@ const router = createBrowserRouter([
               <title>Photo Fix || MyReviews</title>
             </Helmet>
             <PrivateRoute>
-              <MyReviews />
+              <Suspense fallback={<LoadingSppiner />}>
+                <MyReviews />
+              </Suspense>
             </PrivateRoute>
           </>
         ),
