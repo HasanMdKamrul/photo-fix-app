@@ -22,6 +22,19 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li className="flex">
+        <NavLink
+          rel="noopener noreferrer"
+          to="/allservices"
+          className={({ isActive }) =>
+            isActive
+              ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
+              : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
+          }
+        >
+          Services
+        </NavLink>
+      </li>
     </>
   );
 

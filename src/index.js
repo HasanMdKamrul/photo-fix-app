@@ -3,7 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { PhotoProvider } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
+import AuthProvider from "./contexts/AuthProvider";
 import ServicesProvider from "./contexts/ServicesProvider";
 import ThemeProvider from "./contexts/ThemeProvider";
 import "./index.css";
@@ -16,7 +19,10 @@ root.render(
       <ServicesProvider>
         <div className="min-h-screen dark:bg-slate-900">
           <PhotoProvider>
-            <App />
+            <ToastContainer />
+            <AuthProvider>
+              <App />
+            </AuthProvider>
           </PhotoProvider>
         </div>
       </ServicesProvider>
