@@ -11,25 +11,29 @@ const MyReviews = () => {
   const { refresh, setRefresh } = useContext(RefreshContext);
 
   const handleDelete = (id) => {
-    const deleteReviews = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:15000/myreviews/delete/${id}`,
-          {
-            method: "DELETE",
-          }
-        );
-        const data = await response.json();
+    const agree = window.confirm("Are you sure, you want to delete this?");
 
-        if (data.success) {
-          toast.success(data.message);
-          setRefresh(!refresh);
+    if (agree) {
+      const deleteReviews = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:15000/myreviews/delete/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
+          const data = await response.json();
+
+          if (data.success) {
+            toast.success(data.message);
+            setRefresh(!refresh);
+          }
+        } catch (error) {
+          console.log(error.message);
         }
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    deleteReviews();
+      };
+      deleteReviews();
+    }
   };
 
   useEffect(() => {
