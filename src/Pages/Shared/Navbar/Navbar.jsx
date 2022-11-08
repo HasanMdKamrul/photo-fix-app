@@ -2,10 +2,23 @@ import React, { useContext } from "react";
 import { MdLogin, MdLogout } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import Switch from "react-switch";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import { ThemeContext } from "../../../contexts/ThemeProvider";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handlelogout = async () => {
+    try {
+      await logOut();
+      toast.success("User logged out");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   const navItems = (
     <>
@@ -35,6 +48,32 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
+      <li className="flex">
+        <NavLink
+          rel="noopener noreferrer"
+          to="/myreviews"
+          className={({ isActive }) =>
+            isActive
+              ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
+              : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
+          }
+        >
+          My Reviews
+        </NavLink>
+      </li>
+      <li className="flex">
+        <NavLink
+          rel="noopener noreferrer"
+          to="/addservice"
+          className={({ isActive }) =>
+            isActive
+              ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
+              : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
+          }
+        >
+          Add Service
+        </NavLink>
+      </li>
     </>
   );
 
@@ -59,11 +98,12 @@ const Navbar = () => {
         </a>
         <ul className="items-stretch hidden space-x-3 lg:flex">{navItems}</ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <MdLogin />
-          <MdLogout />
-          <button className="self-center px-8 py-3 font-semibold rounded ml-5 bg-violet-400 dark:bg-violet-400 dark:text-gray-900">
-            Sign up
-          </button>
+          {user && user?.uid ? (
+            <MdLogout onClick={handlelogout} />
+          ) : (
+            <MdLogin />
+          )}
+
           <Switch
             className="ml-5"
             onChange={() => toggleTheme()}

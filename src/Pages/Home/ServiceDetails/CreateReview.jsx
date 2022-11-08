@@ -4,9 +4,9 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const CreateReview = ({ id, setRefresh, refresh }) => {
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+  // console.log(user);
 
-  console.log(id);
+  // console.log(id);
 
   const handleSubmit = (event) => {
     event.preventDefault();
