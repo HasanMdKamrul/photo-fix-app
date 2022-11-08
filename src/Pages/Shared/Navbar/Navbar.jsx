@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MdLogin, MdLogout } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Switch from "react-switch";
 import { toast } from "react-toastify";
 import logo from "../../../assets/Logo/1.png";
@@ -94,17 +94,12 @@ const Navbar = () => {
   return (
     <header className="p-4 dark:bg-gray-800 bg-sky-50 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
-        <a
-          rel="noopener noreferrer"
-          href="/"
-          aria-label="Back to homepage"
-          className="flex items-center p-2"
-        >
+        <Link to="/" className="flex items-center p-2">
           <span className="w-20 flex justify-center items-center">
             <img src={logo} alt="" />
             <p className="text-lg font-extrabold">PhotoFix</p>
           </span>
-        </a>
+        </Link>
         <ul className="items-stretch hidden space-x-3 lg:flex">{navItems}</ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
           {user && user?.uid ? (
