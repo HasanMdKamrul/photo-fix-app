@@ -11,11 +11,7 @@ const sendPayLoad = async (currentUser) => {
 
     const data = await response.json();
 
-    console.log(data);
-
     const token = data.token;
-
-    console.log(token);
 
     localStorage.setItem("token", token);
   } catch (error) {

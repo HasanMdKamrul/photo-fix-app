@@ -31,8 +31,6 @@ const SignIn = () => {
           email: result?.user?.email,
         };
 
-        console.log("current user", currentUser);
-
         sendPayLoad(currentUser);
         setRefresh(!refresh);
         navigate(from, { replace: true });

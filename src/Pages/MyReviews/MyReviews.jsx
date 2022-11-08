@@ -5,7 +5,7 @@ import { RefreshContext } from "../../contexts/RefreshProvider";
 import MyReviewCard from "./MyReviewCard";
 
 const MyReviews = () => {
-  const { user, loading, logOut } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [ownReviews, setOwnReviews] = useState([]);
 
   const { refresh, setRefresh } = useContext(RefreshContext);
@@ -56,9 +56,7 @@ const MyReviews = () => {
       }
     };
     ownReviews();
-  }, [user?.email, setRefresh, refresh, logOut, loading]);
-
-  console.log(user?.email);
+  }, [user?.email, setRefresh, refresh, loading]);
 
   return (
     <>
