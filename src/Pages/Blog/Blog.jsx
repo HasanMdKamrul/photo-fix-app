@@ -41,7 +41,7 @@ const Blog = () => {
                 To know about the
               </span>
             </span>{" "}
-            exiting world of photography, read my blogs.
+            exiting world of photography read my blogs.
           </h2>
           <p className="text-base dark:text-gray-400 text-gray-700 md:text-lg">
             The lower section of the blog will give you an insight about the

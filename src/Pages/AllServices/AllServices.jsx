@@ -10,7 +10,9 @@ const AllServices = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/services`);
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/services`
+        );
         const data = await response.json();
         setServices(data.data);
       } catch (error) {

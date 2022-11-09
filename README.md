@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## Project Name or Website Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PHOTOFIX
 
-## Available Scripts
+# To see live: https://photo-fix-393b3.web.app/
 
-In the project directory, you can run:
+### Author : Md Kamrul Hasan
 
-### `yarn start`
+# What features it offers?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- In this SPA web app you will find various services related to the photography of an individual photographer. Which are focued on single photographer with a lots of offerings.
+- The interactive navbar consists of few routes including a login, logout icon which toggles based on user interactivity.
+- In the service details page you can give review about the services you took.
+- At the home component you will find banner,services,recent works and about me section.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- On the services page you'll find all the services this single photograpger is offering, on the other hand in the home page you will find just 3 services, where the most recent one comes first.
+- By clicking see details you can go to the service details page .
+- There you will find the detail info about the service this platfrom is offering, also you can see reviews that other people has given at the end you can also give your feedback if you are logged in.
+- Your feedback instantly update and shown, also you can see only the service specific reviews in this details page.
+- At My Reviews page you will find all the reviews you have given about different services, with their name specific as well .
 
-### `yarn test`
+- In the blog page you'll find tech related blogs.
+- At the Add Service page you can add a new service by providing usefull informations.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React lazy load and suspance implemented to give the user a better exprerience which the big chunk of data load from the api.
+- In the password section you'll get an eye icon to show or hide your password by clicking.
+- You can reset your password as well if you forgot
 
-### `yarn build`
+## What is used to build this web-site (Technologies)?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+- Firebase
+- Firebase Hosting
+- Html 5
+- CSS 3
+- React-router-dom
+- React-icons
+- Kitwind
+- Mamba UI
+- Tailwind CSS
+- Lottie React
+- React-toastify
+- React-simple-typewritter
+- React-Lazy-loading and suspance

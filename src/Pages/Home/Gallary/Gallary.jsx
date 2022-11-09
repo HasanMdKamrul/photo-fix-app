@@ -9,7 +9,9 @@ const Gallary = () => {
   useEffect(() => {
     const loadPhotos = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/photos`);
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/photos`
+        );
         const data = await response.json();
         console.log(data);
         setPhotos(data.data);

@@ -22,7 +22,9 @@ const ServiceDetails = () => {
   useEffect(() => {
     const loadReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/reviews`);
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/reviews`
+        );
         const data = await response.json();
         if (data.success) {
           const serviceSpecificReviews = data.data.filter(

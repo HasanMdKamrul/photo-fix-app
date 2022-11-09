@@ -1,7 +1,7 @@
 const sendPayLoad = async (currentUser) => {
   try {
     console.log(currentUser);
-    const response = await fetch(`http://localhost:15000/jwt`, {
+    const response = await fetch(`https://photo-fix-server.vercel.app/jwt`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -19,13 +19,16 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
 
     const sendReview = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/createreview`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(review),
-        });
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/createreview`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(review),
+          }
+        );
 
         const data = await response.json();
 

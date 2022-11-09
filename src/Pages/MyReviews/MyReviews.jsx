@@ -20,7 +20,7 @@ const MyReviews = () => {
       const deleteReviews = async () => {
         try {
           const response = await fetch(
-            `http://localhost:15000/myreviews/delete/${id}`,
+            `https://photo-fix-server.vercel.app/myreviews/delete/${id}`,
             {
               method: "DELETE",
             }
@@ -43,7 +43,7 @@ const MyReviews = () => {
     const ownReviews = async () => {
       try {
         const response = await fetch(
-          `http://localhost:15000/myreviews?email=${user?.email}`,
+          `https://photo-fix-server.vercel.app/myreviews?email=${user?.email}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem("token")}`,

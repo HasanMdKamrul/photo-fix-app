@@ -17,13 +17,16 @@ const AddService = () => {
 
     const addService = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/createservice`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(service),
-        });
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/createservice`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(service),
+          }
+        );
         const data = await response.json();
 
         if (data.success) {

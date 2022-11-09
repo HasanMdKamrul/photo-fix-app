@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             <Blog />
           </>
         ),
-        loader: () => fetch(`http://localhost:15000/blogs`),
+        loader: () => fetch(`https://photo-fix-server.vercel.app/blogs`),
       },
       {
         path: "/update/:id",
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:15000/update/${params.id}`),
+          fetch(`https://photo-fix-server.vercel.app/update/${params.id}`),
       },
       {
         path: "/allservices",
@@ -126,7 +126,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params: { id } }) =>
-          fetch(`http://localhost:15000/services/${id}`),
+          fetch(`https://photo-fix-server.vercel.app/services/${id}`),
       },
       {
         path: "/addservice",

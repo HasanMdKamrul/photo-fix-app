@@ -11,13 +11,16 @@ const UpdateReview = ({ data }) => {
 
     const updateData = async () => {
       try {
-        const response = await fetch(`http://localhost:15000/update/${_id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ reviewText }),
-        });
+        const response = await fetch(
+          `https://photo-fix-server.vercel.app/update/${_id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ reviewText }),
+          }
+        );
 
         const data = await response.json();
 
