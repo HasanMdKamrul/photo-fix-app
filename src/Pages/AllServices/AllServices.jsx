@@ -1,8 +1,8 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import ServiceCard from "../Home/Services/ServiceCard";
 import LoadingSppiner from "../Shared/Navbar/Others/LoadingSppiner";
-// import ServiceCard from "../Home/Services/ServiceCard";
 
-const ServiceCard = lazy(() => import("../Home/Services/ServiceCard"));
+// const ServiceCard = lazy(() => import("../Home/Services/ServiceCard"));
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
@@ -10,6 +10,7 @@ const AllServices = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [dataPerPage, setDataPerPage] = useState(3);
   const numberOfPages = Math.ceil(count / dataPerPage);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
@@ -22,6 +23,7 @@ const AllServices = () => {
         if (data.success) {
           setCount(data.count);
           setServices(data?.data);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error.message);
@@ -43,13 +45,15 @@ const AllServices = () => {
             complete solutions upon request. Please feel free to contact me if
             you need further information.
           </p>
-          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-            {services?.map((service) => (
-              <Suspense key={service._id} fallback={<LoadingSppiner />}>
-                <ServiceCard service={service} />
-              </Suspense>
-            ))}
-          </div>
+          {loading ? (
+            <LoadingSppiner />
+          ) : (
+            <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+              {services?.map((service) => (
+                <ServiceCard key={service._id} service={service} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
       <h1 className="flex mt-2 justify-center items-center text-gray-600 font-semibold">

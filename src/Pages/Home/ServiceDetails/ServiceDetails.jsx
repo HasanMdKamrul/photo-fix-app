@@ -15,10 +15,6 @@ const ServiceDetails = () => {
 
   const { user } = useContext(AuthContext);
 
-  // console.log(data);
-
-  // console.log(reviews);
-
   useEffect(() => {
     const loadReviews = async () => {
       try {

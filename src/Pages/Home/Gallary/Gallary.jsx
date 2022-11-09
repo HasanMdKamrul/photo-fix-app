@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PhotoView } from "react-photo-view";
 import photo1 from "../../../assets/Gallary/groom-holds-bride-s-hands-where-are-two-wedding-rings.jpg";
 import photo2 from "../../../assets/Gallary/wedding-couple-france.jpg";
+import LoadingSppiner from "../../Shared/Navbar/Others/LoadingSppiner";
 
 const Gallary = () => {
   const [photos, setPhotos] = useState([]);
@@ -14,16 +15,17 @@ const Gallary = () => {
           `https://photo-fix-server.vercel.app/photos`
         );
         const data = await response.json();
-        setLoading(false);
+
         if (data.success) {
           setPhotos(data.data);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error.message);
       }
     };
     loadPhotos();
-  }, [loading]);
+  }, []);
 
   return (
     <div>
@@ -47,15 +49,19 @@ const Gallary = () => {
               className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square"
             />
           </PhotoView>
-          {photos?.map((image) => (
-            <PhotoView key={image?._id} src={image?.photo}>
-              <img
-                alt=""
-                className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
-                src={image?.photo}
-              />
-            </PhotoView>
-          ))}
+          {loading ? (
+            <LoadingSppiner />
+          ) : (
+            photos?.map((image) => (
+              <PhotoView key={image?._id} src={image?.photo}>
+                <img
+                  alt=""
+                  className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+                  src={image?.photo}
+                />
+              </PhotoView>
+            ))
+          )}
           <PhotoView src={photo2}>
             <img
               src={photo2}

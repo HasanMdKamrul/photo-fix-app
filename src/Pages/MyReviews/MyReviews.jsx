@@ -1,16 +1,16 @@
-import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { RefreshContext } from "../../contexts/RefreshProvider";
 import LoadingSppiner from "../Shared/Navbar/Others/LoadingSppiner";
-// import MyReviewCard from "./MyReviewCard";
+import MyReviewCard from "./MyReviewCard";
 
-const MyReviewCard = lazy(() => import("./MyReviewCard"));
+// const MyReviewCard = lazy(() => import("./MyReviewCard"));
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [ownReviews, setOwnReviews] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const { refresh, setRefresh } = useContext(RefreshContext);
 
   const handleDelete = (id) => {
@@ -55,6 +55,7 @@ const MyReviews = () => {
 
         if (data.success) {
           setOwnReviews(data.data);
+          setLoading(false);
         } else {
           setRefresh(!refresh);
         }
@@ -125,16 +126,19 @@ const MyReviews = () => {
                     </button>
                   </div>
                 </div>
-                <section className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
-                  {ownReviews.map((review) => (
-                    <Suspense key={review._id} fallback={<LoadingSppiner />}>
+                {loading ? (
+                  <LoadingSppiner />
+                ) : (
+                  <section className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
+                    {ownReviews.map((review) => (
                       <MyReviewCard
+                        key={review._id}
                         handleDelete={handleDelete}
                         review={review}
                       />
-                    </Suspense>
-                  ))}
-                </section>
+                    ))}
+                  </section>
+                )}
               </div>
             </section>
           </>
