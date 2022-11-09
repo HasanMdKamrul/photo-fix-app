@@ -12,7 +12,7 @@ const ServicesProvider = ({ children }) => {
           `https://photo-fix-server.vercel.app/services`
         );
         const data = await response.json();
-        setServices(data.data);
+        setServices(data?.data);
       } catch (error) {
         console.log(error.message);
       }
