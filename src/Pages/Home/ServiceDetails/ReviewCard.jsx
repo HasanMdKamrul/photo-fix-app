@@ -3,8 +3,6 @@ import React from "react";
 const ReviewCard = ({ review }) => {
   const { name, reviewText, reviewerImage, email } = review;
 
-  console.log(review);
-
   return (
     <div className="p-8 border rounded-lg dark:border-gray-700">
       <p className="leading-loose text-3xl text-yellow-500">{reviewText}</p>
