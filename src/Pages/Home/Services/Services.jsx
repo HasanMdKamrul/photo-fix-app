@@ -1,5 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { RefreshContext } from "../../../contexts/RefreshProvider";
 import LoadingSppiner from "../../Shared/Navbar/Others/LoadingSppiner";
 // import ServiceCard from "./ServiceCard";
 
@@ -7,6 +8,7 @@ const ServiceCard = lazy(() => import("./ServiceCard"));
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const { refresh, setRefresh } = useContext(RefreshContext);
 
   useEffect(() => {
     const loadData = async () => {
@@ -15,6 +17,7 @@ const Services = () => {
           `https://photo-fix-server.vercel.app/services?limit=3`
         );
         const data = await response.json();
+        setRefresh(!refresh);
         if (data.success) {
           setServices(data?.data);
         }
@@ -23,9 +26,7 @@ const Services = () => {
       }
     };
     loadData();
-  }, []);
-
-  console.log(services);
+  }, [refresh, setRefresh]);
 
   return (
     <div className="bg-gray-200 dark:bg-gray-900">

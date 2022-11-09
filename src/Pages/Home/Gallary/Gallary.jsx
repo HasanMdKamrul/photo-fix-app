@@ -13,8 +13,10 @@ const Gallary = () => {
           `https://photo-fix-server.vercel.app/photos`
         );
         const data = await response.json();
-        console.log(data);
-        setPhotos(data.data);
+
+        if (data.success) {
+          setPhotos(data.data);
+        }
       } catch (error) {
         console.log(error.message);
       }
