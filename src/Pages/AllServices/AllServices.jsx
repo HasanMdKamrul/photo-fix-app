@@ -16,7 +16,7 @@ const AllServices = () => {
     const loadData = async () => {
       try {
         const response = await fetch(
-          `https://photo-fix-server.vercel.app/services?size=${dataPerPage}&&currentPage=${currentPage}`
+          `https://photo-fix-server.vercel.app/allservices?size=${dataPerPage}&&currentPage=${currentPage}`
         );
         const data = await response.json();
 
@@ -28,12 +28,6 @@ const AllServices = () => {
     };
     loadData();
   }, [dataPerPage, currentPage]);
-
-  // ** pagination
-
-  // ** current page
-  // ** Data per page
-  // ** Number of pages -> Math.celi(count/dataPerPage)
 
   return (
     <div>

@@ -44,7 +44,7 @@ const Gallary = () => {
               className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square"
             />
           </PhotoView>
-          {photos.map((image) => (
+          {photos?.map((image) => (
             <PhotoView key={image?._id} src={image?.photo}>
               <img
                 alt=""
