@@ -15,7 +15,9 @@ const Services = () => {
           `https://photo-fix-server.vercel.app/services?limit=3`
         );
         const data = await response.json();
-        setServices(data?.data);
+        if (data.success) {
+          setServices(data?.data);
+        }
       } catch (error) {
         console.log(error.message);
       }
