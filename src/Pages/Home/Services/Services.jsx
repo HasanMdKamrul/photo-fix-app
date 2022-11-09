@@ -1,9 +1,7 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingSppiner from "../../Shared/Navbar/Others/LoadingSppiner";
-// import ServiceCard from "./ServiceCard";
-
-const ServiceCard = lazy(() => import("./ServiceCard"));
+import ServiceCard from "./ServiceCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -16,16 +14,17 @@ const Services = () => {
           `https://photo-fix-server.vercel.app/services?limit=3`
         );
         const data = await response.json();
-        setLoading(false);
+
         if (data.success) {
           setServices(data?.data);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error.message);
       }
     };
     loadData();
-  }, [loading]);
+  }, []);
 
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
@@ -40,13 +39,15 @@ const Services = () => {
             complete solutions upon request. Please feel free to contact me if
             you need further information.
           </p>
-          <div className="grid grid-cols-1 gap-2 mt-8 xl:mt-16 md:grid-cols-2 lg:md:grid-cols-2  xl:grid-cols-3">
-            {services?.map((service) => (
-              <Suspense key={service._id} fallback={<LoadingSppiner />}>
-                <ServiceCard service={service} />
-              </Suspense>
-            ))}
-          </div>
+          {loading ? (
+            <LoadingSppiner />
+          ) : (
+            <div className="grid grid-cols-1 gap-2 mt-8 xl:mt-16 md:grid-cols-2 lg:md:grid-cols-2  xl:grid-cols-3">
+              {services?.map((service) => (
+                <ServiceCard key={service._id} service={service} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
       <div className="flex justify-center p-5">
