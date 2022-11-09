@@ -87,6 +87,7 @@ const router = createBrowserRouter([
             <Blog />
           </>
         ),
+        loader: () => fetch(`http://localhost:15000/blogs`),
       },
       {
         path: "/update/:id",

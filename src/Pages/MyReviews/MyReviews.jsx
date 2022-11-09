@@ -78,7 +78,7 @@ const MyReviews = () => {
               <div className="mt-6 md:flex md:items-center md:justify-between">
                 <div>
                   <h1 className="text-3xl font-semibold text-gray-800 capitalize xl:text-5xl lg:text-4xl dark:text-white">
-                    Your Reviews about our services
+                    Your Reviews about my services
                   </h1>
 
                   <div className="flex mx-auto mt-6">
