@@ -4,10 +4,6 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const CreateReview = ({ id, setRefresh, refresh }) => {
   const { user } = useContext(AuthContext);
 
-  // console.log(user);
-
-  // console.log(id);
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -32,9 +28,10 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
         });
 
         const data = await response.json();
-        console.log(data);
+
         if (data.success) {
           setRefresh(!refresh);
+          event.target.reset();
         }
       } catch (error) {
         console.log(error.message);

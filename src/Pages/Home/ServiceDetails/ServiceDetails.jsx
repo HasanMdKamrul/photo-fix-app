@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdPlayArrow, MdPlayCircle } from "react-icons/md";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import CreateReview from "./CreateReview";
 import ReviewCard from "./ReviewCard";
@@ -10,6 +10,8 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { category, image, description, price, title, _id } = data;
   const [refresh, setRefresh] = useState(false);
+
+  const location = useLocation();
 
   const { user } = useContext(AuthContext);
 
@@ -141,7 +143,12 @@ const ServiceDetails = () => {
       ) : (
         <h1 className="text-5xl dark:text-gray-200 p-12 text-center text-black font-extrabold mt-5 ">
           Please{" "}
-          <Link className="text-blue-600" to="/signin">
+          <Link
+            className="text-blue-600"
+            to="/signin"
+            state={{ from: location }}
+            replace
+          >
             login
           </Link>{" "}
           to give your feedback
