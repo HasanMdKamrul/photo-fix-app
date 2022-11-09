@@ -49,32 +49,38 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      <li className="flex">
-        <NavLink
-          rel="noopener noreferrer"
-          to="/myreviews"
-          className={({ isActive }) =>
-            isActive
-              ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
-              : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
-          }
-        >
-          My Reviews
-        </NavLink>
-      </li>
-      <li className="flex">
-        <NavLink
-          rel="noopener noreferrer"
-          to="/addservice"
-          className={({ isActive }) =>
-            isActive
-              ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
-              : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
-          }
-        >
-          Add Service
-        </NavLink>
-      </li>
+      <>
+        {user && user?.uid && (
+          <>
+            <li className="flex">
+              <NavLink
+                rel="noopener noreferrer"
+                to="/myreviews"
+                className={({ isActive }) =>
+                  isActive
+                    ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
+                    : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
+                }
+              >
+                My Reviews
+              </NavLink>
+            </li>
+            <li className="flex">
+              <NavLink
+                rel="noopener noreferrer"
+                to="/addservice"
+                className={({ isActive }) =>
+                  isActive
+                    ? "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-violet-400 border-violet-400 dark:text-violet-400 dark:border-violet-400"
+                    : "flex items-center px-4 -mb-0 border-b-0 dark:border-transparent text-dark  dark:text-white "
+                }
+              >
+                Add Service
+              </NavLink>
+            </li>
+          </>
+        )}
+      </>
       <li className="flex">
         <NavLink
           rel="noopener noreferrer"

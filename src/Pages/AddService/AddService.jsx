@@ -47,6 +47,7 @@ const AddService = () => {
           Title
         </label>
         <input
+          required
           name="title"
           id="title"
           type="text"
@@ -62,6 +63,7 @@ const AddService = () => {
           Price
         </label>
         <input
+          required
           name="price"
           id="price"
           type="text"
@@ -74,6 +76,7 @@ const AddService = () => {
           Description
         </label>
         <textarea
+          required
           name="description"
           id="description"
           type="text"
@@ -89,6 +92,7 @@ const AddService = () => {
           Category
         </label>
         <input
+          required
           name="category"
           id="category"
           type="text"
@@ -103,6 +107,7 @@ const AddService = () => {
           Image
         </label>
         <input
+          required
           name="image"
           id="image"
           type="text"
