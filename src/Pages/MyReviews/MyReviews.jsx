@@ -23,6 +23,9 @@ const MyReviews = () => {
             `https://photo-fix-server.vercel.app/myreviews/delete/${id}`,
             {
               method: "DELETE",
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
             }
           );
           const data = await response.json();

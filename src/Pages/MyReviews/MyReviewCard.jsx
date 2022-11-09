@@ -9,7 +9,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
 
   const { services } = useContext(ServicesContext);
 
-  const serviceFound = services.find((svr) => svr._id === serviceId);
+  const serviceFound = services?.find((svr) => svr._id === serviceId);
 
   return (
     <div className="p-8 border border-gray-300 hover:bg-sky-300 dark:hover:bg-sky-800 rounded-lg dark:border-gray-700">

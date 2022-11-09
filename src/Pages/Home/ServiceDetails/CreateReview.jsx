@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MdFeedback } from "react-icons/md";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const CreateReview = ({ id, setRefresh, refresh }) => {
@@ -36,6 +37,7 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
         if (data.success) {
           setRefresh(!refresh);
           event.target.reset();
+          toast.success("Your Review has been added");
         }
       } catch (error) {
         console.log(error.message);

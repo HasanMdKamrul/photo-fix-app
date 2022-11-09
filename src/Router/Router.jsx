@@ -101,8 +101,6 @@ const router = createBrowserRouter([
             </PrivateRoute>
           </>
         ),
-        loader: ({ params }) =>
-          fetch(`https://photo-fix-server.vercel.app/update/${params.id}`),
       },
       {
         path: "/allservices",
