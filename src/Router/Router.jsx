@@ -96,7 +96,9 @@ const router = createBrowserRouter([
             <Helmet>
               <title>Photo Fix || Edit</title>
             </Helmet>
-            <Update />
+            <PrivateRoute>
+              <Update />
+            </PrivateRoute>
           </>
         ),
         loader: ({ params }) =>
