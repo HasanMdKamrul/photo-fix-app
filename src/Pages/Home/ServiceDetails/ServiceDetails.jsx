@@ -27,7 +27,7 @@ const ServiceDetails = () => {
         );
         const data = await response.json();
         if (data.success) {
-          const serviceSpecificReviews = data.data.filter(
+          const serviceSpecificReviews = data?.data.filter(
             (review) => review.serviceId === _id
           );
           setReviews(serviceSpecificReviews);

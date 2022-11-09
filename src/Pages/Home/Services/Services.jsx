@@ -15,13 +15,15 @@ const Services = () => {
           `https://photo-fix-server.vercel.app/services?limit=3`
         );
         const data = await response.json();
-        setServices(data.data);
+        setServices(data?.data);
       } catch (error) {
         console.log(error.message);
       }
     };
     loadData();
   }, []);
+
+  console.log(services);
 
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
@@ -37,9 +39,9 @@ const Services = () => {
             you need further information.
           </p>
           <div className="grid grid-cols-1 gap-2 mt-8 xl:mt-16 md:grid-cols-2 lg:md:grid-cols-2  xl:grid-cols-3">
-            {services.map((service) => (
-              <Suspense fallback={<LoadingSppiner />}>
-                <ServiceCard key={service._id} service={service} />
+            {services?.map((service) => (
+              <Suspense key={service._id} fallback={<LoadingSppiner />}>
+                <ServiceCard service={service} />
               </Suspense>
             ))}
           </div>
