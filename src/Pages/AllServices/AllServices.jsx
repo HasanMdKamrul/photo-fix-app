@@ -16,10 +16,9 @@ const AllServices = () => {
     const loadData = async () => {
       try {
         const response = await fetch(
-          `https://photo-fix-server.vercel.app/allservices?dataPerPage=${dataPerPage}&currentPage=${currentPage}`
+          `https://photo-fix-server.vercel.app/services?dataPerPage=${dataPerPage}&currentPage=${currentPage}`
         );
         const data = await response.json();
-        console.log(data);
 
         if (data.success) {
           console.log(data.count);
