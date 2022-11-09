@@ -5,6 +5,7 @@ import photo2 from "../../../assets/Gallary/wedding-couple-france.jpg";
 
 const Gallary = () => {
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPhotos = async () => {
@@ -13,7 +14,7 @@ const Gallary = () => {
           `https://photo-fix-server.vercel.app/photos`
         );
         const data = await response.json();
-
+        setLoading(false);
         if (data.success) {
           setPhotos(data.data);
         }
@@ -22,7 +23,7 @@ const Gallary = () => {
       }
     };
     loadPhotos();
-  }, []);
+  }, [loading]);
 
   return (
     <div>
