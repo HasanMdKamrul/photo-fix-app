@@ -7,7 +7,7 @@ const ServiceCard = lazy(() => import("./ServiceCard"));
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
@@ -16,7 +16,7 @@ const Services = () => {
           `https://photo-fix-server.vercel.app/services?limit=3`
         );
         const data = await response.json();
-        setRefresh(!refresh);
+        setLoading(false);
         if (data.success) {
           setServices(data?.data);
         }
@@ -25,7 +25,7 @@ const Services = () => {
       }
     };
     loadData();
-  }, [refresh, setRefresh]);
+  }, [loading]);
 
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
