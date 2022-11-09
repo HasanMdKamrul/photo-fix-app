@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
-import LoadingSkeleton from "../Shared/Navbar/Others/LoadingSkeleton";
+import LoadingSppiner from "../Shared/Navbar/Others/LoadingSppiner";
 // import ServiceCard from "../Home/Services/ServiceCard";
 
 const ServiceCard = lazy(() => import("../Home/Services/ServiceCard"));
@@ -35,12 +35,12 @@ const AllServices = () => {
             complete solutions upon request. Please feel free to contact me if
             you need further information.
           </p>
-          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-3 xl:grid-cols-3">
-            <Suspense fallback={<LoadingSkeleton />}>
-              {services.map((service) => (
-                <ServiceCard key={service._id} service={service} />
-              ))}
-            </Suspense>
+          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            {services.map((service) => (
+              <Suspense key={service._id} fallback={<LoadingSppiner />}>
+                <ServiceCard service={service} />
+              </Suspense>
+            ))}
           </div>
         </div>
       </section>

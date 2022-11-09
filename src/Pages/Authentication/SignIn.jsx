@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { MdOutlineLogin } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -140,8 +141,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex justify-center items-center pt-40">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-200  text-gray-900">
+    <div className="flex justify-center  items-center pt-40">
+      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-700  text-gray-300">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign in</h1>
           <p className="text-sm text-gray-400">
@@ -206,8 +207,9 @@ const SignIn = () => {
           <div>
             <button
               type="submit"
-              className="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
+              className="w-full px-8 py-3 flex justify-center items-center font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
             >
+              <MdOutlineLogin className="mr-2" />
               Sign in
             </button>
           </div>
@@ -258,7 +260,7 @@ const SignIn = () => {
         </div>
         <p className="px-6 text-sm text-center text-gray-400">
           Don't have an account yet?{" "}
-          <Link to="/signup" className="hover:underline text-gray-600">
+          <Link to="/signup" className="hover:underline text-gray-50">
             Sign up
           </Link>
           .

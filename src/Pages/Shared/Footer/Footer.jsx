@@ -11,7 +11,7 @@ const Footer = () => {
         </Link>
       </li>
       <li>
-        <Link rel="noopener noreferrer" to="/gallary">
+        <Link rel="noopener noreferrer" to="/">
           Gallary
         </Link>
       </li>

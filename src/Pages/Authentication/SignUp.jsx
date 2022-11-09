@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { MdClose } from "react-icons/md";
+import { MdAppRegistration, MdClose } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -169,8 +169,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center  p-8">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+    <div className="flex justify-center items-center  p-5">
+      <div className="flex flex-col max-w-lg p-6 rounded-md sm:p-10 bg-gray-700 text-gray-200">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
           <p className="text-sm text-gray-400">Create a new account</p>
@@ -179,7 +179,7 @@ const SignUp = () => {
           onSubmit={handleSubmit}
           noValidate=""
           action=""
-          className="space-y-12 ng-untouched ng-pristine ng-valid"
+          className="space-y-5 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
             <div>
@@ -210,9 +210,10 @@ const SignUp = () => {
             </div>
             <div>
               <label htmlFor="text" className="block mb-2 text-sm">
-                Photo Url
+                Photo Url*
               </label>
               <input
+                required
                 type="text"
                 name="photoURL"
                 id="photoURL"
@@ -309,8 +310,9 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
+                className="w-full px-8 flex justify-center items-center py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
               >
+                <MdAppRegistration className="mr-2" />
                 Sign Up
               </button>
             </div>
@@ -353,7 +355,7 @@ const SignUp = () => {
         </div>
         <p className="px-6 text-sm text-center text-gray-400">
           Already have an account yet?{" "}
-          <Link to="/signin" className="hover:underline text-gray-600">
+          <Link to="/signin" className="hover:underline text-gray-100">
             Sign In
           </Link>
           .

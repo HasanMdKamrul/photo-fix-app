@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { MdFeedback } from "react-icons/md";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const CreateReview = ({ id, setRefresh, refresh }) => {
@@ -44,8 +45,8 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex justify-center items-center my-5">
+      <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12  bg-gray-200 dark:bg-gray-700 dark:text-gray-100">
         <div className="flex flex-col items-center w-full">
           <h2 className="text-3xl font-semibold text-center">
             Your opinion matters!
@@ -125,7 +126,7 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
               </button>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col w-full">
+          <form onSubmit={handleSubmit} className="flex  flex-col w-full">
             <textarea
               name="text"
               rows="3"
@@ -134,20 +135,12 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
             ></textarea>
             <button
               type="submit"
-              className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400"
+              className="py-4 my-8 flex justify-center items-center font-semibold rounded-md dark:text-gray-900 bg-violet-400 dark:bg-violet-400"
             >
+              <MdFeedback className="w-8 h-8  mr-2" />
               Leave feedback
             </button>
           </form>
-        </div>
-        <div className="flex items-center justify-center">
-          <a
-            rel="noopener noreferrer"
-            href="/"
-            className="text-sm dark:text-gray-400"
-          >
-            Maybe later
-          </a>
         </div>
       </div>
     </div>

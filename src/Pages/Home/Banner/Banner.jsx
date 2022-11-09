@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
@@ -19,9 +20,11 @@ const Banner = () => {
             />
           </h1>
         </div>
-        <button className="w-auto px-4 py-2 mt-4 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-          See Reviews
-        </button>
+        <Link to="/allservices">
+          <button className="w-auto px-4 py-2 mt-4 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+            All Services
+          </button>
+        </Link>
       </div>
     </div>
   );

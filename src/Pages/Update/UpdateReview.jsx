@@ -1,4 +1,5 @@
 import React from "react";
+import { MdFeedback } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const UpdateReview = ({ data }) => {
@@ -35,9 +36,9 @@ const UpdateReview = ({ data }) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
-        <div className="flex flex-col items-center w-full">
+    <div className="flex justify-center items-center ">
+      <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-800 mt-5 bg-gray-200   dark:text-gray-100">
+        <div className="flex flex-col  items-center w-full">
           <h2 className="text-3xl font-semibold text-center">
             Your opinion matters!
           </h2>
@@ -122,24 +123,17 @@ const UpdateReview = ({ data }) => {
               name="text"
               rows="3"
               placeholder="Message..."
-              className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
+              className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-600"
             ></textarea>
+
             <button
               type="submit"
-              className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400"
+              className="py-4 my-8 flex justify-center items-center font-semibold rounded-md dark:text-gray-900 bg-violet-400 dark:bg-violet-400"
             >
+              <MdFeedback className="w-8 h-8  mr-2" />
               Update feedback
             </button>
           </form>
-        </div>
-        <div className="flex items-center justify-center">
-          <a
-            rel="noopener noreferrer"
-            href="/"
-            className="text-sm dark:text-gray-400"
-          >
-            Maybe later
-          </a>
         </div>
       </div>
     </div>
