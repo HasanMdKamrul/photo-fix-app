@@ -1,6 +1,5 @@
-import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { RefreshContext } from "../../../contexts/RefreshProvider";
 import LoadingSppiner from "../../Shared/Navbar/Others/LoadingSppiner";
 // import ServiceCard from "./ServiceCard";
 
@@ -8,7 +7,7 @@ const ServiceCard = lazy(() => import("./ServiceCard"));
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const { refresh, setRefresh } = useContext(RefreshContext);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
