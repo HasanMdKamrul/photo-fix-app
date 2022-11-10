@@ -273,11 +273,13 @@ const SignUp = () => {
                 )}
                 {showPassword ? (
                   <FaEyeSlash
+                    className="text-slate-900"
                     onClick={passwordShowHandler}
                     style={{ marginLeft: "-30px" }}
                   />
                 ) : (
                   <FaEye
+                    className="text-slate-900"
                     onClick={passwordShowHandler}
                     style={{ marginLeft: "-30px" }}
                   />

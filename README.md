@@ -9,7 +9,7 @@
 # What features it offers?
 
 - In this SPA web app you will find various services related to the photography of an individual photographer. Which are focued on single photographer with a lots of offerings.
-- The interactive navbar consists of few routes including a login, logout icon which toggles based on user interactivity.
+- The interactive navbar consists of few routes including a login, logout icon which toggles based on user interactivity at the sharp right corner.
 - In the service details page you can give review about the services you took.
 - At the home component you will find banner,services,recent works and about me section.
 
@@ -44,3 +44,4 @@
 - React-simple-typewritter
 - React-Lazy-loading and suspance
 - React-photo-view
+- React-rating-stars-component

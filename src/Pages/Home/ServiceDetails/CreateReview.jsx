@@ -76,7 +76,7 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
               required
               name="text"
               rows="3"
-              placeholder="Message..."
+              placeholder="Write your review here..."
               className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
             ></textarea>
             <button

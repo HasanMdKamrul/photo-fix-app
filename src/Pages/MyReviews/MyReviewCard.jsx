@@ -14,16 +14,16 @@ const MyReviewCard = ({ review, handleDelete }) => {
 
   return (
     <div className="p-8 border border-gray-300 hover:bg-sky-300 dark:hover:bg-sky-800 rounded-lg dark:border-gray-700">
-      <h1 className="text-2xl font-extrabold dark:text-gray-200">
+      <h1 className="text-3xl font-extrabold dark:text-gray-200">
         {serviceFound?.title}
       </h1>
       <div className="flex items-center">
-        <h1 className="text-3xl dark:text-gray-200">Rating -</h1>
+        <h1 className="text-xl dark:text-gray-200">Rating -</h1>
         {[...Array(rating).keys()].map((num) => (
-          <FaStar key={num} className="dark:text-orange-400 w-12 h-12 ml-2" />
+          <FaStar key={num} className="dark:text-orange-400 w-6 h-6 ml-2" />
         ))}
       </div>
-      <p className="leading-loose text-3xl text-yellow-500">{reviewText}</p>
+      <p className="leading-loose text-lg text-yellow-500">{reviewText}</p>
 
       <div className="flex items-center mt-8 -mx-2">
         <img

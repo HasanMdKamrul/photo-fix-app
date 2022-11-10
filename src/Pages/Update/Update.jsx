@@ -8,8 +8,6 @@ const Update = () => {
 
   const { id } = useParams();
 
-  console.log(id);
-
   useEffect(() => {
     const loadSignleReview = async () => {
       try {

@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 const UpdateReview = ({ data }) => {
   const { _id, rating } = data;
 
-  console.log(data);
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -59,7 +57,7 @@ const UpdateReview = ({ data }) => {
               defaultValue={data?.reviewText}
               name="text"
               rows="3"
-              placeholder="Message..."
+              placeholder="Write your review here..."
               className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-600"
             ></textarea>
 

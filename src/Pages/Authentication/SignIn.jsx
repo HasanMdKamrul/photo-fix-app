@@ -92,8 +92,7 @@ const SignIn = () => {
           email: result?.user?.email,
         };
 
-        console.log(currentUser);
-
+        // ** Sending the payload to generate JWT
         sendPayLoad(currentUser);
         toast.success("User logged in");
         navigate(from, { replace: true });
@@ -191,11 +190,13 @@ const SignIn = () => {
                 )}
                 {showPassword ? (
                   <FaEyeSlash
+                    className="text-slate-900"
                     onClick={passwordShowHandler}
                     style={{ marginLeft: "-30px" }}
                   />
                 ) : (
                   <FaEye
+                    className="text-slate-900"
                     onClick={passwordShowHandler}
                     style={{ marginLeft: "-30px" }}
                   />
