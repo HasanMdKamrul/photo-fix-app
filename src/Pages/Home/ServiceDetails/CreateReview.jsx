@@ -73,6 +73,7 @@ const CreateReview = ({ id, setRefresh, refresh }) => {
           </div>
           <form onSubmit={handleSubmit} className="flex  flex-col w-full">
             <textarea
+              required
               name="text"
               rows="3"
               placeholder="Message..."
