@@ -11,7 +11,10 @@ const ReviewCard = ({ review }) => {
       <div className="flex items-center">
         <h1 className="text-3xl dark:text-gray-200">Review</h1>
         {[...Array(rating).keys()].map((num) => (
-          <FaStar key={num} className="dark:text-orange-400 w-6 h-6 ml-2" />
+          <FaStar
+            key={num}
+            className="dark:text-orange-400 text-orange-400 w-6 h-6 ml-2"
+          />
         ))}
       </div>
       <p className="leading-loose text-xl text-yellow-500">{reviewText}</p>

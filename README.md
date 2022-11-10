@@ -6,6 +6,8 @@
 
 ### Author : Md Kamrul Hasan
 
+### Please use the DARK MODE for better experience
+
 # What features it offers?
 
 - In this SPA web app you will find various services related to the photography of an individual photographer. Which are focued on single photographer with a lots of offerings.
