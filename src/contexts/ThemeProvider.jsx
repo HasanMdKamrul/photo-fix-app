@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
 
   useEffect(() => {
     // ** get the root element

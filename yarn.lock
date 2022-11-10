@@ -8085,6 +8085,11 @@ react-photo-view@^1.2.2:
   resolved "https://registry.npmjs.org/react-photo-view/-/react-photo-view-1.2.2.tgz"
   integrity sha512-/xsOiDuiR23hKxpmF73EDKPvsBvcWogolXvnBhMZV4CUhd9tnXF91amjKnuQe9BmLaR9CbNxXDOI9SNKeXT5ew==
 
+react-rating-stars-component@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-rating-stars-component/-/react-rating-stars-component-2.2.0.tgz#e947c6a1f59278e6fea1098453f43cb15d077c14"
+  integrity sha512-A3lgLxumfFQQicKQmxacZ91fq/zRaVWlCPnVodJmJV6obvod4/yCotetN9WuyBiUfnKsEFDBo/8B85ocwmL7ng==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"

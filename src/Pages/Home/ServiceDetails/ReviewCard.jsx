@@ -1,11 +1,20 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const ReviewCard = ({ review }) => {
-  const { name, reviewText, reviewerImage, email } = review;
+  const { name, reviewText, reviewerImage, email, rating } = review;
+
+  console.log(rating);
 
   return (
     <div className="p-8 border rounded-lg dark:border-gray-700">
-      <p className="leading-loose text-3xl text-yellow-500">{reviewText}</p>
+      <div className="flex items-center">
+        <h1 className="text-3xl dark:text-gray-200">Review</h1>
+        {[...Array(rating).keys()].map((num) => (
+          <FaStar key={num} className="dark:text-orange-400 w-12 h-12 ml-2" />
+        ))}
+      </div>
+      <p className="leading-loose text-xl text-yellow-500">{reviewText}</p>
 
       <div className="flex items-center mt-8 -mx-2">
         <img

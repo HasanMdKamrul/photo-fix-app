@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaStar } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { ServicesContext } from "../../contexts/ServicesProvider";
 
 const MyReviewCard = ({ review, handleDelete }) => {
-  const { _id, name, reviewText, reviewerImage, email, serviceId } = review;
+  const { _id, name, reviewText, reviewerImage, email, serviceId, rating } =
+    review;
 
   const { services } = useContext(ServicesContext);
 
@@ -16,6 +17,12 @@ const MyReviewCard = ({ review, handleDelete }) => {
       <h1 className="text-2xl font-extrabold dark:text-gray-200">
         {serviceFound?.title}
       </h1>
+      <div className="flex items-center">
+        <h1 className="text-3xl dark:text-gray-200">Rating -</h1>
+        {[...Array(rating).keys()].map((num) => (
+          <FaStar key={num} className="dark:text-orange-400 w-12 h-12 ml-2" />
+        ))}
+      </div>
       <p className="leading-loose text-3xl text-yellow-500">{reviewText}</p>
 
       <div className="flex items-center mt-8 -mx-2">
