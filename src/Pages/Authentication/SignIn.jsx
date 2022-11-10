@@ -208,7 +208,7 @@ const SignIn = () => {
           <div>
             <button
               type="submit"
-              className="w-full px-8 py-3 flex justify-center items-center font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
+              className="w-full px-8 py-3 flex justify-center items-center font-semibold rounded-md bg-gray-900 hover:bg-gray-500 hover:text-white text-gray-100"
             >
               <MdOutlineLogin className="mr-2" />
               Sign in
